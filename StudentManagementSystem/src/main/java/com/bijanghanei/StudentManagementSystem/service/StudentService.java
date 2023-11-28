@@ -9,4 +9,5 @@ public interface StudentService {
 
     void save(Student student);
     Student findById(Integer id);
+    void deleteById(Integer id);
 }
