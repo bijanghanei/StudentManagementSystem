@@ -4,10 +4,7 @@ import com.bijanghanei.StudentManagementSystem.entity.Student;
 import com.bijanghanei.StudentManagementSystem.service.StudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +28,19 @@ public class StudentController {
         model.addAttribute("student",student);
         return "create-student-form";
     }
+    @GetMapping("/edit/{id}")
+    public String editStudentForm(@PathVariable Integer id,Model model){
+        Student student = studentService.findById(id);
+        model.addAttribute("student",student);
+        return "edit-student-form";
+    }
     @PostMapping("/list")
     public String saveStudents(@ModelAttribute("student") Student student){
+        studentService.save(student);
+        return "redirect:/students/list";
+    }
+    @PostMapping("/update/{id}")
+    public String updateStudent(@ModelAttribute("student") Student student){
         studentService.save(student);
         return "redirect:/students/list";
     }
