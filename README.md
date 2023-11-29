@@ -1,5 +1,5 @@
 # StudentManagementSystem
-Student Management System using Spring Boot, Bootstrap and Thymeleaf.
+CRUD Student Management System using Spring Boot, Bootstrap and Thymeleaf.
 
 You should setup  a database using scripts in the folder inside your MySQL user and connection and then change username and password in the application.properties file as your MySQL info
 OR
